@@ -1,6 +1,7 @@
 package jpabook.jpashop.domain.item;
 
 import jakarta.persistence.*;
+import jpabook.jpashop.domain.Category;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,8 +20,8 @@ public abstract class Item {
 
     private String name;
     private int price;
-    private String stokeQuantity;
+    private int stokeQuantity;
 
-//    @OneToMany(mappedBy = )
-//    private List<Category> categories = new ArrayList<>();
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
 }

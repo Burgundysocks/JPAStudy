@@ -22,14 +22,14 @@ class MemberRepositoryTest {
     public void testMember() throws Exception{
         //given
         Member member = new Member();
-        member.setUsername("memberA");
+        member.setName("memberA");
         Long saveId = memberRepository.save(member);
         //when
         Member findMember = memberRepository.find(saveId);
         //then
 
         assertThat(findMember.getId()).isEqualTo(member.getId());
-        assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
+        assertThat(findMember.getName()).isEqualTo(member.getName());
         assertThat(findMember).isEqualTo(member);
 //        findmember == member 같으니까 착각하지마
         //같은 트랜젝션 안에 있어서 같은 영속성 컨텍스트이니까 같음
