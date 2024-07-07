@@ -23,7 +23,7 @@ public class Member {
     private Address address;
 
 
-    //@JsonIgnore
+//    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
     //회원정보를 조회할 때 @JsonIgnore을 통해 order을 없앨 수 있음
