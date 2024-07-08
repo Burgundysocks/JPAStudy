@@ -51,7 +51,7 @@ public class MemberApiController {
     }
 
     @PostMapping("/api/v2/members")
-    public CreateMemberResponse svaeMember2(@RequestBody @Valid CreateMemberRequest request){
+    public CreateMemberResponse saveMember2(@RequestBody @Valid CreateMemberRequest request){
         Member member = new Member();
         member.setName(request.getName());
 
