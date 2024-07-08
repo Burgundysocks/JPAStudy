@@ -17,7 +17,7 @@ public class JpashopApplication {
 	@Bean
 	Hibernate5JakartaModule hibernate5JakartaModule() {
 		Hibernate5JakartaModule module = new Hibernate5JakartaModule();
-
 		return module;
+		//얘 기본설정 자체가 프록시는 데이터를 안뿌림
 	}
 }
