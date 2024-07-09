@@ -45,7 +45,7 @@ class OrderServiceTest {
         assertEquals(OrderStatus.ORDER, getOrder.getStatus(), "상품 주문시 상태는 ORDER");
         assertEquals(orderCount, getOrder.getOrderItems().size(), "주문한 상품수 가 같아야 함");
         assertEquals(getOrder.getTotalPrice(), 10000 * orderCount, "주문 가격은 주문량 * 가격 이다");
-        assertEquals(item.getStokeQuantity(), 9, "주문 수량 만큼 재고가 줄어야 한다");
+        assertEquals(item.getStockQuantity(), 9, "주문 수량 만큼 재고가 줄어야 한다");
 
     }
 
@@ -75,7 +75,7 @@ class OrderServiceTest {
 
         Order getOrder = orderRepository.findOne(orderId);
         assertEquals(OrderStatus.CANCEL, getOrder.getStatus(),"취소 상태 여야 한다.");
-        assertEquals(10, item.getStokeQuantity(),"주문취소 상품은 수량이 복구되야 한다.");
+        assertEquals(10, item.getStockQuantity(),"주문취소 상품은 수량이 복구되야 한다.");
 
     }
 
@@ -84,7 +84,7 @@ class OrderServiceTest {
         Item item = new Book();
         item.setName(name);
         item.setPrice(price);
-        item.setStokeQuantity(stoke);
+        item.setStockQuantity(stoke);
         em.persist(item);
         return item;
     }
