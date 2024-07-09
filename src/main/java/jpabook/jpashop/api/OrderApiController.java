@@ -32,7 +32,7 @@ public class OrderApiController {
     //엔티티 직접노출방법 사실 이건 그냥 예시지 절대 이렇게 하면 안됨
     @GetMapping("/api/v1/orders")
     public List<Order> orderV1() {
-        List<Order> all = orderRepository.findAllByCriteria(new OrderSearch());
+        List<Order> all = orderRepository.findAllByString(new OrderSearch());
         for (Order order : all) {
             order.getMember().getName();
             order.getDelivery().getAddress();
@@ -48,7 +48,7 @@ public class OrderApiController {
 
     @GetMapping("/api/v2/orders")
     public List<OrderDTO> orderV2() {
-        List<Order> orders = orderRepository.findAllByCriteria(new OrderSearch());
+        List<Order> orders = orderRepository.findAllByString(new OrderSearch());
         List<OrderDTO> collect = orders.stream()
                 .map(o -> new OrderDTO(o))
                 .collect(Collectors.toList());
